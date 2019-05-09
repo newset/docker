@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  server:
+    image: drone/drone:1
+    volumes:
+      - ./data:/data
+    ports:
+      - "8000:80"
+      - "443:443"
+    environment:
+      - DRONE_GIT_ALWAYS_AUTH=false
+      - DRONE_GITLAB_SERVER=http://git.doctorwork.com
+      - DRONE_GITLAB_CLIENT_ID=a61abc593aa88774092e463bb67331781a6a686429fe31a476865c90e9e2a882
+      - DRONE_GITLAB_CLIENT_SECRET=ff693d06512d8dc21ceeb3176a6a51f1f4737e1741960a9bebcbdf18f50cdaa2
+      - DRONE_RUNNER_CAPACITY=2
+      - DRONE_SERVER_HOST=127.0.0.1:8000
+      - DRONE_SERVER_PROTO=http
+      - DRONE_TLS_AUTOCERT=false
