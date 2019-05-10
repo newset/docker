@@ -15,3 +15,6 @@ services:
     image: verdaccio/verdaccio:4.0.0-beta.8
     ports: 
       - 4873:4873
+    volumes: 
+      - ./npm/packages:/verdaccio/storage
+      - ./npm/conf:/verdaccio/conf
