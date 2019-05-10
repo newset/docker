@@ -2,6 +2,7 @@ version: '2.0'
 
 services:
   nginx:
+    container_name: nginx
     restart: always
     image: nginx:1.11.6-alpine
     ports:
@@ -9,9 +10,10 @@ services:
       - 443:443
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d
-      - ./nginx/log:/var/log/nginx
-      - ./nginx/www:/var/www
+      - ./nginx/logs:/var/log/nginx
+      - ./nginx/sites:/var/www
   npm:
+    container_name: npm
     image: verdaccio/verdaccio:4.0.0-beta.8
     ports: 
       - 4873:4873
