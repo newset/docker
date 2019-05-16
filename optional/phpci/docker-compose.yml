@@ -1,0 +1,29 @@
+version: '2'
+
+services:
+  beanstalk:
+    image: schickling/beanstalkd
+  phpci:
+    image: itherz/phpci
+    build: .
+    environment:
+      MYSQL_USER: root
+      MYSQL_HOST: mysqltest
+      MYSQL_PASSWORD: mysqltest
+      MYSQL_DBNAME: phpci
+      LDAP_HOST: ldap
+      LDAP_BASE: ou=Users,dc=local
+      LDAP_UIDATTRIBUTE: uid
+      SMTP_HOST: smtp.local
+      SMTP_USER: user
+      SMTP_PASSWORD: password
+      SMTP_PORT: 25
+      SMTP_FROM: no-reply@local
+      SMTP_DEFAULTTO: default@local
+      URL: 'http://127.0.0.1:5300/'
+      GITHUB_TOKEN: '...'
+      TIMEZONE: 'Europe/Moscow'
+      BEANSTALK_HOST: beanstalk
+      BEANSTALK_QUEUE: phpci
+    ports:
+      - '5300:80'

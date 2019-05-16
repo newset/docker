@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  phpmyadmin:
+    restart: always
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    ports:
+      - 8000:80
+    environment:
+      - PMA_HOSTS=127.0.0.1
+      - PMA_VERBOSES=local-db1
+      - PMA_USER=root
+      - PMA_PORTS=3307
+      - PMA_PASSWORD=

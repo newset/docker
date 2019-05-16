@@ -1,0 +1,32 @@
+{
+    "port": "3000",
+    "adminAccount": "yapi@doctorwork.com",
+    "db": {
+        "servername": "mongo",
+        "DATABASE": "yapi",
+        "port": 27017,
+        "user": "",
+        "pass": ""
+    },
+    "mail": {
+        "enable": true,
+        "host": "smtp.doctorwork.com",
+        "port": 465,
+        "from": "yapi@doctorwork.com",
+        "auth": {
+            "user": "yapi@doctorwork.com",
+            "pass": "Do1234"
+        }
+    },
+    "plugins": [
+        {
+            "name": "qsso",
+            "options": {
+                "type": "sso",
+                "loginUrl": "http://sso.example.com/service/verifytoken.php?token=",
+                "emailPostfix": "@doctorwork.com",
+                "AUTH_SERVER": "https://sso.example.com/login.php"
+            }
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+# docker run -d --name cockpit -p 8080:80 agentejo/cockpit
+
+version: "3.3"
+services:
+  cockpit:
+    container_name: cockpit
+    image: agentejo/cockpit
+    ports:
+      - 4000:80

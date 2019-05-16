@@ -1,0 +1,49 @@
+version: '2'
+
+services:
+  parse-server:
+    container_name: parse_app_server
+    #build: .
+    image: parseplatform/parse-server
+    ports:
+      - "1337:1337"
+    environment:
+      PORT: 1337
+      PARSE_SERVER_APPLICATION_ID: $SERVER_APP_ID
+      PARSE_SERVER_MASTER_KEY: $SERVER_MASTER_KEY
+      PARSE_SERVER_DATABASE_URI: $DATABASE_URI
+    links:
+      - mongo
+    volumes:
+      - ./cloud:/parse/cloud
+      - ./certs:/certs
+    command: "--appId $SERVER_APP_ID --masterKey $SERVER_MASTER_KEY --databaseURI ${DATABASE_URI}"
+  mongo:
+    container_name: parse_mongo
+    image: mongo # ref. https://github.com/ParsePlatform/parse-server/issues/1913
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data/db:/data/db
+
+  parse-dashboard:
+    container_name: parse_dashboard
+    image: parseplatform/parse-dashboard
+    links:
+      - parse-server
+    environment:
+      APP_NAME: $APP_NAME
+      ALLOW_INSECURE_HTTP: $PARSE_DASHBOARD_ALLOW_INSECURE_HTTP
+      USER1: $USER1
+      USER1_PASSWORD: $USER1_PASSWORD
+      PARSE_DASHBOARD_ALLOW_INSECURE_HTTP: $PARSE_DASHBOARD_ALLOW_INSECURE_HTTP
+      SERVER_URL: $SERVER_URL
+      MOUNT_PATH: $PARSE_DASHBOARD_MOUNT_PATH
+      TRUST_PROXY: $PARSE_DASHBOARD_TRUST_PROXY
+      PORT: 4040
+    ports:
+      - "4040:4040"
+    # command: parse-dashboard --config /src/Parse-Dashboard/parse-dashboard-config.json
+    # command: parse-dashboard --port 4040
+    volumes:
+      - ./parse-dashboard-config.json:/src/Parse-Dashboard/parse-dashboard-config.json

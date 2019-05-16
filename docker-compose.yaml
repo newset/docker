@@ -20,3 +20,41 @@ services:
     volumes: 
       - ./npm/packages:/verdaccio/storage
       - ./npm/conf:/verdaccio/conf
+  mock:
+    image: easymock/easymock
+    command: /bin/bash -c "npm run build && npm start"
+    container_name: web-mock-easy
+    links:
+      - mongodb:mongodb
+    ports:
+      - 7300:7300
+    volumes:
+      - type: bind 
+        source: ./mock/logs # 日志地址，根据需要修改为本地地址
+        target: /home/easy-mock/easy-mock/logs
+      - type: bind
+        source: ./production.json # 配置地址，请使用本地配置地址替换
+        target: /home/easy-mock/easy-mock/config/production.json
+      - type: bind
+        source: ./package.json
+        target: /home/easy-mock/easy-mock/package.json
+  mongo:
+    image: mongo:3.5
+    volumes:
+      - type: bind
+        source: ./mongo/data/db
+        target: /data/db
+  yapi:
+    image: branchzero/yapi:1.3.8
+    command: /bin/bash -c "[ ! -e /home/yapi/log/init.lock ] && npm run install-server && touch /home/yapi/log/init.lock; npm run start"
+    links:
+      - mongo:mongo
+    ports:
+      - 3000:3000
+    volumes:
+      - type: bind
+        source: ./yapi/config.json
+        target: /home/yapi/config.json
+      - type: bind
+        source: ./yapi/log
+        target: /home/yapi/log

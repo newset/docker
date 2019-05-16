@@ -1,0 +1,16 @@
+{
+	"users": [
+		{
+			"user": "root",
+			"pass": "rootdw2017"
+		}
+	],
+	"apps": [
+		{
+			"serverURL": "http://localhost:1337/parse",
+			"appId": "dw10000",
+			"masterKey": "ckg6jRVsfPIpXa1J",
+			"appName": "Doctorwork"
+		}
+	]
+}

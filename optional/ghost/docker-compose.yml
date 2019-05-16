@@ -1,0 +1,21 @@
+version: '3.1'
+services:
+  ghost:
+    container_name: ghost
+    image: ghost:alpine
+    restart: always
+    ports:
+      - 2368:2368
+    environment:
+      # see https://docs.ghost.org/docs/config#section-running-ghost-with-config-env-variables
+      database__client: mysql
+      database__connection__host: db
+      database__connection__user: root
+      database__connection__password: ghost123
+      database__connection__database: ghost
+  db:
+    container_name: ghost_mysql
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ghost123
