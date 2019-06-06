@@ -1,0 +1,1 @@
+2019/05/20 15:09:37 [error] 7#7: *1 open() "/var/www/html/PV" failed (2: No such file or directory), client: 172.18.0.1, server: itoatest.example.com, request: "GET /PV?peerid=0&uri=http://thunderqtypv.union.xunlei.com&src=www.6vhao.com HTTP/1.1", host: "analytics-union.xunlei.com", referrer: "http://www.6vhao.com/mj/2013-04-01/20273.html"
