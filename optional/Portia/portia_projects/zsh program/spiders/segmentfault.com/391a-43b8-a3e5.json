@@ -1,0 +1,84 @@
+{
+    "extractors": {}, 
+    "id": "391a-43b8-a3e5", 
+    "name": "- SegmentFault", 
+    "page_id": "", 
+    "page_type": "item", 
+    "plugins": {
+        "annotations-plugin": {
+            "extracts": [
+                {
+                    "annotations": {
+                        "#portia-content": "#dummy"
+                    }, 
+                    "container_id": null, 
+                    "id": "f560-45c7-9609", 
+                    "item_container": true, 
+                    "repeated": false, 
+                    "required": [], 
+                    "schema_id": "6310-43e1-8d24", 
+                    "selector": "section:nth-child(2) > .summary > .title", 
+                    "siblings": 0, 
+                    "tagid": null, 
+                    "text-content": "#portia-content"
+                }, 
+                {
+                    "accept_selectors": [
+                        "section:nth-child(2) > .summary > .title > a"
+                    ], 
+                    "container_id": "f560-45c7-9609", 
+                    "data": {
+                        "5444-440b-b5fd": {
+                            "attribute": "href", 
+                            "extractors": {}, 
+                            "field": "a449-48f2-8dd6", 
+                            "required": false
+                        }
+                    }, 
+                    "id": "cdba-4d37-88d9", 
+                    "text-content": "content", 
+                    "post_text": null, 
+                    "pre_text": null, 
+                    "reject_selectors": [], 
+                    "required": [], 
+                    "repeated": false, 
+                    "selection_mode": "auto", 
+                    "selector": "section:nth-child(2) > .summary > .title > a", 
+                    "tagid": null, 
+                    "xpath": "//section[2]/*[contains(concat(\" \", @class, \" \"), \" summary \")]/*[contains(concat(\" \", @class, \" \"), \" title \")]/a"
+                }, 
+                {
+                    "accept_selectors": [
+                        "section:nth-child(2) > .summary > .title > a"
+                    ], 
+                    "container_id": "f560-45c7-9609", 
+                    "data": {
+                        "515f-4ea5-b0d3": {
+                            "attribute": "content", 
+                            "extractors": [
+                                "4160-43d0-ad1b"
+                            ], 
+                            "field": "1d06-47c3-a438", 
+                            "required": false
+                        }
+                    }, 
+                    "id": "00cb-488c-b812", 
+                    "text-content": "content", 
+                    "post_text": null, 
+                    "pre_text": null, 
+                    "reject_selectors": [], 
+                    "required": [], 
+                    "repeated": false, 
+                    "selection_mode": "auto", 
+                    "selector": "section:nth-child(2) > .summary > .title > a", 
+                    "tagid": null, 
+                    "xpath": "//section[2]/*[contains(concat(\" \", @class, \" \"), \" summary \")]/*[contains(concat(\" \", @class, \" \"), \" title \")]/a"
+                }
+            ]
+        }
+    }, 
+    "scrapes": "6310-43e1-8d24", 
+    "spider": "segmentfault.com", 
+    "url": "https://segmentfault.com/blog/goreliu?page=1", 
+    "version": "0.13.3"
+}

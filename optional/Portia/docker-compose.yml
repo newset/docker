@@ -1,0 +1,11 @@
+version: '2.0'
+
+services:
+  portia:
+    container_name: portia
+    restart: always
+    image: scrapinghub/portia
+    ports:
+      - 9001:9001
+    volumes:
+      - ./portia_projects:/app/data/projects

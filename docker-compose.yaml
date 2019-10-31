@@ -12,32 +12,34 @@ services:
       - ./nginx/conf.d:/etc/nginx/conf.d
       - ./nginx/logs:/var/log/nginx
       - ./nginx/sites:/var/www/html
+  nginx-proxy:
+    image: jc21/nginx-proxy-manager-base:latest
+    ports:
+      - 80:80
+      - 81:81
+      - 43:443
+    environment:
+      - NODE_ENV=development
+      - FORCE_COLOR=1
+    volumes:
+      - ./nginx/proxy/data:/data
+      - ./nginx/proxy/data/letsencrypt:/etc/letsencrypt
+      - ./nginx/proxy/app:/app
+      - ./nginx/proxy/app/rootfs/etc/nginx:/etc/nginx
+    working_dir: /app
+    depends_on:
+      - db
+    links:
+      - db
+    command: node --max_old_space_size=250 --abort_on_uncaught_exception node_modules/nodemon/bin/nodemon.js
   npm:
     container_name: npm
     image: verdaccio/verdaccio:4.0.0-beta.8
-    ports: 
+    ports:
       - 4873:4873
-    volumes: 
+    volumes:
       - ./npm/packages:/verdaccio/storage
       - ./npm/conf:/verdaccio/conf
-  mock:
-    image: easymock/easymock
-    command: /bin/bash -c "npm run build && npm start"
-    container_name: web-mock-easy
-    links:
-      - mongodb:mongodb
-    ports:
-      - 7300:7300
-    volumes:
-      - type: bind 
-        source: ./mock/logs # 日志地址，根据需要修改为本地地址
-        target: /home/easy-mock/easy-mock/logs
-      - type: bind
-        source: ./production.json # 配置地址，请使用本地配置地址替换
-        target: /home/easy-mock/easy-mock/config/production.json
-      - type: bind
-        source: ./package.json
-        target: /home/easy-mock/easy-mock/package.json
   mongo:
     image: mongo:3.5
     volumes:

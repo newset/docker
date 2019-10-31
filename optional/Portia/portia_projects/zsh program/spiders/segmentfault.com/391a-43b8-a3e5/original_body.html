@@ -1,0 +1,815 @@
+
+<!DOCTYPE HTML><html lang="zh-CN"><head><meta charset="UTF-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/><meta name="renderer" content="webkit"/><meta property="qc:admins" content="15317273575564615446375"/><meta property="og:image" content="https://static.segmentfault.com/v-5db16590/global/img/touch-icon.png"/><meta name="viewport"
+              content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/><meta name="alexaVerifyID" content="LkzCRJ7rPEUwt6fVey2vhxiw1vQ"/><meta name="apple-itunes-app" content="app-id=958101793, app-argument="><title>陌辞寒的技术博客 - SegmentFault 思否</title><meta name="description" content="SegmentFault 思否是中国领先的新一代开发者社区和专业的技术媒体。我们为中文开发者提供纯粹、高质的技术交流平台以及最前沿的技术行业动态，帮助更多的开发者获得认知和能力的提升。自社区上线以来在广大开发者群体中享有极高的口碑及影响力，以技术问答、技术专栏、技术课程、技术资讯为核心的产品形态，目前已经覆盖和服务了超过 300 万开发者，同时 SegmentFault 思否团队也是中国区最大的黑客马拉松 Hackathon 创新力赛事组织者。 腾讯、阿里、百度、美团、京东、滴滴、360等上千个技术团队已经入驻思否社区，我们也欢迎热爱技术的你一起加入交流与学习。"/><meta name="keywords" content="SegmentFault,思否,开发者社区,技术新闻资讯,技术问答社区,技术博客专栏,技术笔记,技术号,技术圈,技术直播,在线编程,开源社区,开源项目,程序员,云计算,AI,区块链,前端,后端,小程序,安全,运维,软件开发,编程,cto,javascript,php,python,java,ios,android"/><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="SegmentFault"/><link rel="shortcut icon" href="https://static.segmentfault.com/v-5db16590/global/img/favicon.ico"/><link rel="apple-touch-icon" href="https://static.segmentfault.com/v-5db16590/global/img/touch-icon.png"><meta name="msapplication-TileColor" content="#009a61"/><meta name="msapplication-square150x150logo" content="https://static.segmentfault.com/v-5db16590/global/img/touch-icon.png"/><meta name="baidu_union_verify" content="bcf7fd80dca60d53d46d5b46e1b990ca"><link rel="alternate" type="application/atom+xml" title="SegmentFault 最新问题" href="/feeds/questions"><link rel="alternate" type="application/atom+xml" title="SegmentFault 最新文章" href="/feeds/blogs"><link rel="alternate" type="application/atom+xml" title="订阅 SegmentFault 当前页" href="/feeds/blog/goreliu"><link rel="stylesheet" href="https://static.segmentfault.com/v-5db16590/global/css/global.css"/><link rel="stylesheet" href="https://static.segmentfault.com/v-5db16590/blog/css/blog.css"/><link rel="stylesheet" href="https://static.segmentfault.com/v-5db16590/global/css/responsive.css"/><script type='text/javascript' src='https://sponsor.segmentfault.com/spcjs.php?id=1&block=1&repu=0'></script><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-6330872677300335",
+            enable_page_level_ads: true
+        });
+    </script></head><body data-mod="blog"
+    class="blog-blog "><!--[if lt IE 9]><div class="alert alert-danger topframe" role="alert">你的浏览器实在<strong>太太太太太太旧了</strong>，放学别走，升级完浏览器再说 <a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div><![endif]--><img id="icon4weChat" style="height: 0;width: 0;" data-src="https://static.segmentfault.com/v-5db16590/global/img/touch-icon-512.png"><div id="gridMapHoverBox" style="position:absolute; border: 1px solid #009a61; z-index:99; font-size: 10px; background:#fff"></div><div class="global-nav sf-header sf-header--index"><div class="bottom-nav visible-xs visible-sm "><div class="opts"><a class="opts-group " href="/"><i class="fa fa-home" aria-hidden="true"></i><span>首页</span></a><a class="opts-group " href="/questions"><i class="fa fa-comments" aria-hidden="true"></i><span>问答</span></a><a class="opts-group active" href="/blogs"><i class="fa fa-pencil-square" aria-hidden="true"></i><span>专栏</span></a><a class="opts-group " href="/lives"><i class="fa fa-play-circle" aria-hidden="true"></i><span>讲堂</span></a><div class="opts-group"><div class="btn-group dropup"><i class="fa fa-bars dropdown hoverDropdown" data-toggle="dropdown" aria-hidden="true"><span>更多</span></i><ul class="dropdown-menu"><li><a href="/jobs">职位</a></li><li><a href="/events">活动</a></li><li><a href="/tags">标签</a></li><li><a href="/badges">徽章</a></li></ul></div></div></div></div><nav class="container nav"><div class="visible-xs visible-sm header-response"><a href="/search" style="display:block"><i class="fa fa-search" aria-hidden="true"></i></a><div class="sf-header__logo sf-header__logo--response"><h1><a href="/" style="height:24px; background-size: auto 24px;"></a></h1></div><a href="/user/login" class="pull-right login-btn"><i class="fa fa-user" aria-hidden="true"></i></a></div><script>
+mobileScroll(
+    function(direction) { 
+        try {
+            if (direction === 'down') {
+                document.querySelector('.bottom-nav').classList.add('hidden')
+            } else {
+                document.querySelector('.bottom-nav').classList.remove('hidden')
+            }
+        } catch(err) {}
+    }
+);    
+function mobileScroll( fn ) {
+    var beforeScrollTop = document.documentElement.scrollTop || document.body.scrollTop,
+        fn = fn || function() {};
+    window.addEventListener("scroll", function() {
+        var afterScrollTop = document.documentElement.scrollTop || document.body.scrollTop,
+            delta = afterScrollTop - beforeScrollTop;
+        if( delta === 0 ) return false;
+        fn( delta > 0 ? "down" : "up" );
+        beforeScrollTop = afterScrollTop;
+    }, false);
+}
+</script><div class="row hidden-xs hidden-sm"><div class="col-sm-8 col-md-9 col-lg-9"><div class="sf-header__logo"><h1><a href="/">SegmentFault</a></h1></div><div><ul class="menu list-inline pull-left hidden-xs"><li class="menu__item"><a href="/" class="">首页</a></li><li class="menu__item"><a href="/questions" class="">问答</a></li><li class="menu__item"><a href="/blogs" class="active-nav">专栏</a></li><li class="menu__item"><a class=" " href="/lives" class="">课程</a></li><li class="menu__item"><a href="/events" class="">活动</a></li><li class="menu__item menu__item--more dropdown"><a href="##" class="dropdown-toggle dropdownBtn" data-toggle="dropdown">
+                                        发现<i class="fa fa-caret-down" style="font-size: 14px;margin-left: 5px;" aria-hidden="true"></i></a><div class="dropdown-block hidden"><ul class="dropdown-content-menu"><li><a href="/groups">圈子</a></li><li><a href="/tags">标签</a></li><li><a href="/groups?tab=jobs">酷工作</a></li><li><a href="/users">排行榜</a></li><li><a href="/badges">徽章</a></li><li><a href="/notes">笔记</a></li><li><a href="https://docs.segmentfault.com" target="_blank">开发手册<i style="line-height: 20px;font-size: 12px;color: #F5A623;" class="ml10 fa fa-external-link-square"></i></a></li><li><a href="https://business.segmentfault.com/ads?utm_source=sf-header" target="_blank">广告投放<i style="line-height: 20px;font-size: 12px;color: #F5A623;" class="ml10 fa fa-external-link-square"></i></a></li></ul></div></li><li class="menu__item visible-sm-inline-block"><a href="/search"><span class="glyphicon glyphicon-search" style="vertical-align: middle;"></span></a></li></ul><form action="/search" class="header-search  hidden-sm hidden-xs pull-right" ><button class="btn btn-link"><span class="sr-only">搜索</span><span class="glyphicon glyphicon-search"></span></button><input id="searchBox" name="q" type="text"  placeholder="搜索问题或关键字" class="form-control" value="" /></form></div></div><div class="col-sm-4 col-md-3 col-lg-3 text-right"><ul class="opts list-inline hidden-xs"><li class="opts__item"><a href="/user/login" class="SFRegister btn-signin" style="margin-bottom:2px;">立即登录</a><a href="/user/register" class="SFLogin ml10 btn-signup"
+                                       onClick="_gaq.push(['_trackEvent', 'Button', 'Click', 'Login']);">免费注册</a></li></ul></div></div></nav></div>
+<div class="wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-9 main mt30">
+                <div class="header">
+                    <div class="post-topheader__side column__widget--follow pull-right" >
+                        <button type="button" class="btn btn-success btn-sm  blog-follow" style="margin-right: 0"
+                                data-id="1200000002651410" data-type="blog" data-do= follow>
+                            <span class="blog-text">关注</span>&nbsp;&nbsp;
+                            <span class="seprator">|</span>&nbsp;&nbsp;
+                            <span class="blog-followers">49</span>
+                        </button>
+                    </div>
+                    <img src=https://static.segmentfault.com/v-5db16590/blog/img/cloumn-logo.svg class="pull-left mr15"/>
+                    <div class="right-part">
+                        <h1 class="h3 column__title"><a href="/blog/goreliu">陌辞寒的技术博客</a>
+                        </h1>
+                        <div class="help-block sub-title">近期主要更新 Zsh 开发指南。</div>
+                    </div>
+                </div>
+                
+                
+                
+                                    <div class="stream-list blog-stream">
+                                                    <section class="stream-list__item stream__item"><div data-id="1190000012068134"
+         class="stream__item-zan   btn btn-default mt0 mr15"><span class="stream__item-zan-icon"></span><span class="stream__item-zan-number">1</span></div><div class="summary"><h2 class="title blog-type-common blog-type-1"><a href="/a/1190000012068134">同时使用多网卡提升树莓派网络利用率</a></h2><ul class="author list-inline"><li><a href="/u/goreliu"><img class="avatar-20 mr10 hidden-xs" src="https://avatar-static.segmentfault.com/136/276/1362761550-58fbf3889ae12_tiny24" alt="陌辞寒">陌辞寒
+                </a>&nbsp;&nbsp;2017年11月19日发布
+            </li><li class="" title="4 收藏"><span data-id="1190000012068134" data-type="article" class="news__bookmark-btn "><i class="fa fa-bookmark" aria-hidden="true"></i><span class="news__bookmark-text ml5">4 收藏</span></span></li></ul><p class="excerpt wordbreak hidden-xs">树莓派 3 自带的有线网卡是 100M 的，无线网卡是 72M 的，都比较慢。想提升网速的话，最直接的方法是使用 usb 网卡，千兆的有线网卡或者 450M 以上的 2.4GHz 无线网卡或者 5GHz 无线网卡。但因为树莓派 3 的 usb ...</p></div></section>
+                                                    <section class="stream-list__item stream__item"><div data-id="1190000011411792"
+         class="stream__item-zan   btn btn-default mt0 mr15"><span class="stream__item-zan-icon"></span><span class="stream__item-zan-number">0</span></div><div class="summary"><h2 class="title blog-type-common blog-type-1"><a href="/a/1190000011411792">Zsh 开发指南（第二十一篇 测试方法以及编写可测试代码的方法）</a></h2><ul class="author list-inline"><li><a href="/u/goreliu"><img class="avatar-20 mr10 hidden-xs" src="https://avatar-static.segmentfault.com/136/276/1362761550-58fbf3889ae12_tiny24" alt="陌辞寒">陌辞寒
+                </a>&nbsp;&nbsp;2017年09月29日发布
+            </li><li class="" title="1 收藏"><span data-id="1190000011411792" data-type="article" class="news__bookmark-btn "><i class="fa fa-bookmark" aria-hidden="true"></i><span class="news__bookmark-text ml5">1 收藏</span></span></li></ul><p class="excerpt wordbreak hidden-xs">在正式的场景，代码写完后都是需要测试的，shell 脚本也不例外。但 shell 脚本的特性导致测试方法和其他语言有所不同。</p></div></section>
+                                                    <section class="stream-list__item stream__item"><div data-id="1190000011281554"
+         class="stream__item-zan   btn btn-default mt0 mr15"><span class="stream__item-zan-icon"></span><span class="stream__item-zan-number">0</span></div><div class="summary"><h2 class="title blog-type-common blog-type-1"><a href="/a/1190000011281554">Zsh 开发指南（第二十篇 代码风格）</a></h2><ul class="author list-inline"><li><a href="/u/goreliu"><img class="avatar-20 mr10 hidden-xs" src="https://avatar-static.segmentfault.com/136/276/1362761550-58fbf3889ae12_tiny24" alt="陌辞寒">陌辞寒
+                </a>&nbsp;&nbsp;2017年09月20日发布
+            </li><li class="" title="2 收藏"><span data-id="1190000011281554" data-type="article" class="news__bookmark-btn "><i class="fa fa-bookmark" aria-hidden="true"></i><span class="news__bookmark-text ml5">2 收藏</span></span></li></ul><p class="excerpt wordbreak hidden-xs">因为 shell 脚本语法比较灵活，写 shell 脚本的开发者熟悉的编程语言也有较大差异，大家很容易写出风格迥异的代码出来。如果只有自己一个人用还好，如果是大家合作开发同一个项目，代码风格不同就会造成不小的麻...</p></div></section>
+                                                    <section class="stream-list__item stream__item"><div data-id="1190000011209746"
+         class="stream__item-zan   btn btn-default mt0 mr15"><span class="stream__item-zan-icon"></span><span class="stream__item-zan-number">4</span></div><div class="summary"><h2 class="title blog-type-common blog-type-1"><a href="/a/1190000011209746">使用 wsl-terminal 更好地体验 Win 10 WSL 终端环境</a></h2><ul class="author list-inline"><li><a href="/u/goreliu"><img class="avatar-20 mr10 hidden-xs" src="https://avatar-static.segmentfault.com/136/276/1362761550-58fbf3889ae12_tiny24" alt="陌辞寒">陌辞寒
+                </a>&nbsp;&nbsp;2017年09月17日发布
+            </li><li class="" title="6 收藏"><span data-id="1190000011209746" data-type="article" class="news__bookmark-btn "><i class="fa fa-bookmark" aria-hidden="true"></i><span class="news__bookmark-text ml5">6 收藏</span></span></li></ul><p class="excerpt wordbreak hidden-xs">WSL 从最初功能不全 bug 遍地都是，到现在除了少数几个比较顽固的 bug 外，基本足以正常使用了。但自带终端模拟器的体验依然非常糟糕，而且在可以预期的未来都不会有太大的长进了。我是从去年 8 月开始开发 wsl-t...</p></div></section>
+                                                    <section class="stream-list__item stream__item"><div data-id="1190000011018544"
+         class="stream__item-zan   btn btn-default mt0 mr15"><span class="stream__item-zan-icon"></span><span class="stream__item-zan-number">1</span></div><div class="summary"><h2 class="title blog-type-common blog-type-1"><a href="/a/1190000011018544">Zsh 开发指南（第十九篇 脚本实例讲解）</a></h2><ul class="author list-inline"><li><a href="/u/goreliu"><img class="avatar-20 mr10 hidden-xs" src="https://avatar-static.segmentfault.com/136/276/1362761550-58fbf3889ae12_tiny24" alt="陌辞寒">陌辞寒
+                </a>&nbsp;&nbsp;2017年09月05日发布
+            </li><li class="" title="3 收藏"><span data-id="1190000011018544" data-type="article" class="news__bookmark-btn "><i class="fa fa-bookmark" aria-hidden="true"></i><span class="news__bookmark-text ml5">3 收藏</span></span></li></ul><p class="excerpt wordbreak hidden-xs">导读 本文将讲解一些比较简单的 zsh 脚本实例。 实例一：复制一个目录的目录结构 功能： 将一个目录及它下边的所有目录复制到另一个目录中（即创建同名目录），但不复制目录下的其他类型文件。 例子： {代码...} ...</p></div></section>
+                                                    <section class="stream-list__item stream__item"><div data-id="1190000010994686"
+         class="stream__item-zan   btn btn-default mt0 mr15"><span class="stream__item-zan-icon"></span><span class="stream__item-zan-number">0</span></div><div class="summary"><h2 class="title blog-type-common blog-type-1"><a href="/a/1190000010994686">Zsh 开发指南（第十八篇 更多内置模块的用法）</a></h2><ul class="author list-inline"><li><a href="/u/goreliu"><img class="avatar-20 mr10 hidden-xs" src="https://avatar-static.segmentfault.com/136/276/1362761550-58fbf3889ae12_tiny24" alt="陌辞寒">陌辞寒
+                </a>&nbsp;&nbsp;2017年09月04日发布
+            </li><li class="" title="5 收藏"><span data-id="1190000010994686" data-type="article" class="news__bookmark-btn "><i class="fa fa-bookmark" aria-hidden="true"></i><span class="news__bookmark-text ml5">5 收藏</span></span></li></ul><p class="excerpt wordbreak hidden-xs">除了 zsh/mathfunc、zsh/net/socket、zsh/net/tcp，zsh 还内置了一些其他的内置模块。本文简单讲几个比较常用的模块。</p></div></section>
+                                                    <section class="stream-list__item stream__item"><div data-id="1190000010987314"
+         class="stream__item-zan   btn btn-default mt0 mr15"><span class="stream__item-zan-icon"></span><span class="stream__item-zan-number">1</span></div><div class="summary"><h2 class="title blog-type-common blog-type-1"><a href="/a/1190000010987314">Zsh 开发指南（第十七篇 使用 socket 文件和 TCP 实现进程间通信）</a></h2><ul class="author list-inline"><li><a href="/u/goreliu"><img class="avatar-20 mr10 hidden-xs" src="https://avatar-static.segmentfault.com/136/276/1362761550-58fbf3889ae12_tiny24" alt="陌辞寒">陌辞寒
+                </a>&nbsp;&nbsp;2017年09月03日发布
+            </li><li class="" title="5 收藏"><span data-id="1190000010987314" data-type="article" class="news__bookmark-btn "><i class="fa fa-bookmark" aria-hidden="true"></i><span class="news__bookmark-text ml5">5 收藏</span></span></li></ul><p class="excerpt wordbreak hidden-xs">就像我之前提到的，zsh 脚本是可以直接使用 socket 文件（UNIX domain socket 所使用）或者 TCP 和其他进程通信的。如果进程都在本地，用 socket 文件效率更高些，并且不要占用端口，权限也更好控制。如果是在不...</p></div></section>
+                                                    <section class="stream-list__item stream__item"><div data-id="1190000010985304"
+         class="stream__item-zan   btn btn-default mt0 mr15"><span class="stream__item-zan-icon"></span><span class="stream__item-zan-number">0</span></div><div class="summary"><h2 class="title blog-type-common blog-type-1"><a href="/a/1190000010985304">Zsh 开发指南（第十六篇 alias 和 eval 的用法）</a></h2><ul class="author list-inline"><li><a href="/u/goreliu"><img class="avatar-20 mr10 hidden-xs" src="https://avatar-static.segmentfault.com/136/276/1362761550-58fbf3889ae12_tiny24" alt="陌辞寒">陌辞寒
+                </a>&nbsp;&nbsp;2017年09月03日发布
+            </li><li class="" title="4 收藏"><span data-id="1190000010985304" data-type="article" class="news__bookmark-btn "><i class="fa fa-bookmark" aria-hidden="true"></i><span class="news__bookmark-text ml5">4 收藏</span></span></li></ul><p class="excerpt wordbreak hidden-xs">alias（别名）在 shell 中是非常常用的，它主要用于给命令起别名，简化输入。但主要用于交互场景，在脚本中基本用不到。eval 是一个非常强大的命令，它的功能是将字符串解析成代码再执行，但也会额外增加很多复杂...</p></div></section>
+                                                    <section class="stream-list__item stream__item"><div data-id="1190000010978715"
+         class="stream__item-zan   btn btn-default mt0 mr15"><span class="stream__item-zan-icon"></span><span class="stream__item-zan-number">0</span></div><div class="summary"><h2 class="title blog-type-common blog-type-1"><a href="/a/1190000010978715">Zsh 开发指南（第十五篇 进程与作业控制）</a></h2><ul class="author list-inline"><li><a href="/u/goreliu"><img class="avatar-20 mr10 hidden-xs" src="https://avatar-static.segmentfault.com/136/276/1362761550-58fbf3889ae12_tiny24" alt="陌辞寒">陌辞寒
+                </a>&nbsp;&nbsp;2017年09月02日发布
+            </li><li class="" title="3 收藏"><span data-id="1190000010978715" data-type="article" class="news__bookmark-btn "><i class="fa fa-bookmark" aria-hidden="true"></i><span class="news__bookmark-text ml5">3 收藏</span></span></li></ul><p class="excerpt wordbreak hidden-xs">通常情况 zsh 脚本是在一个进程中（并且单线程）执行的，但有时我们需要并行执行一些代码，因为现在的 CPU 基本都是多核的，这样可以加快运行速度。这就涉及到进程与作业控制。这里不讲进程的概念。</p></div></section>
+                                                    <section class="stream-list__item stream__item"><div data-id="1190000010977195"
+         class="stream__item-zan   btn btn-default mt0 mr15"><span class="stream__item-zan-icon"></span><span class="stream__item-zan-number">0</span></div><div class="summary"><h2 class="title blog-type-common blog-type-1"><a href="/a/1190000010977195">Zsh 开发指南（第十四篇 文件读写）</a></h2><ul class="author list-inline"><li><a href="/u/goreliu"><img class="avatar-20 mr10 hidden-xs" src="https://avatar-static.segmentfault.com/136/276/1362761550-58fbf3889ae12_tiny24" alt="陌辞寒">陌辞寒
+                </a>&nbsp;&nbsp;2017年09月02日发布
+            </li><li class="" title="4 收藏"><span data-id="1190000010977195" data-type="article" class="news__bookmark-btn "><i class="fa fa-bookmark" aria-hidden="true"></i><span class="news__bookmark-text ml5">4 收藏</span></span></li></ul><p class="excerpt wordbreak hidden-xs">写文件要比读文件简单一些，最常用的用法是使用 &gt; 直接将命令的输出重定向到文件。如果文件存在，内容会被覆盖；如果文件不存在，会被创建。</p></div></section>
+                                                    <section class="stream-list__item stream__item"><div data-id="1190000010975651"
+         class="stream__item-zan   btn btn-default mt0 mr15"><span class="stream__item-zan-icon"></span><span class="stream__item-zan-number">1</span></div><div class="summary"><h2 class="title blog-type-common blog-type-1"><a href="/a/1190000010975651">Zsh 开发指南（第十三篇 管道和重定向）</a></h2><ul class="author list-inline"><li><a href="/u/goreliu"><img class="avatar-20 mr10 hidden-xs" src="https://avatar-static.segmentfault.com/136/276/1362761550-58fbf3889ae12_tiny24" alt="陌辞寒">陌辞寒
+                </a>&nbsp;&nbsp;2017年09月02日发布
+            </li><li class="" title="4 收藏"><span data-id="1190000010975651" data-type="article" class="news__bookmark-btn "><i class="fa fa-bookmark" aria-hidden="true"></i><span class="news__bookmark-text ml5">4 收藏</span></span></li></ul><p class="excerpt wordbreak hidden-xs">到目前为止，我们已经大致了解了 zsh 的语法特性，可以写一些功能不复杂的脚本了。但 shell 脚本主要的应用场景并不是闭门造车写独立的程序，而是和外部环境交互。所以要写出实用的脚本，要了解 zsh 如何和外部环...</p></div></section>
+                                                    <section class="stream-list__item stream__item"><div data-id="1190000010972460"
+         class="stream__item-zan   btn btn-default mt0 mr15"><span class="stream__item-zan-icon"></span><span class="stream__item-zan-number">0</span></div><div class="summary"><h2 class="title blog-type-common blog-type-1"><a href="/a/1190000010972460">Zsh 开发指南（第十二篇 [[ ]] 的用法）</a></h2><ul class="author list-inline"><li><a href="/u/goreliu"><img class="avatar-20 mr10 hidden-xs" src="https://avatar-static.segmentfault.com/136/276/1362761550-58fbf3889ae12_tiny24" alt="陌辞寒">陌辞寒
+                </a>&nbsp;&nbsp;2017年09月01日发布
+            </li><li class="" title="4 收藏"><span data-id="1190000010972460" data-type="article" class="news__bookmark-btn "><i class="fa fa-bookmark" aria-hidden="true"></i><span class="news__bookmark-text ml5">4 收藏</span></span></li></ul><p class="excerpt wordbreak hidden-xs">[[ ]] 是我们比较熟悉的符号了，从第一篇开始我们就一直在用，但我一直没有详细介绍它的用法，只用到了它的一小部分功能。本文详细介绍 [[ ]] 的用法。</p></div></section>
+                                                    <section class="stream-list__item stream__item"><div data-id="1190000010964170"
+         class="stream__item-zan   btn btn-default mt0 mr15"><span class="stream__item-zan-icon"></span><span class="stream__item-zan-number">0</span></div><div class="summary"><h2 class="title blog-type-common blog-type-1"><a href="/a/1190000010964170">Zsh 开发指南（第十一篇 变量的进阶内容）</a></h2><ul class="author list-inline"><li><a href="/u/goreliu"><img class="avatar-20 mr10 hidden-xs" src="https://avatar-static.segmentfault.com/136/276/1362761550-58fbf3889ae12_tiny24" alt="陌辞寒">陌辞寒
+                </a>&nbsp;&nbsp;2017年09月01日发布
+            </li><li class="" title="4 收藏"><span data-id="1190000010964170" data-type="article" class="news__bookmark-btn "><i class="fa fa-bookmark" aria-hidden="true"></i><span class="news__bookmark-text ml5">4 收藏</span></span></li></ul><p class="excerpt wordbreak hidden-xs">之前我们已经依次讲过 zsh 下的五种变量（字符串、数组、哈希表、整数、浮点数）的基本用法。但变量的使用方面，还有一些比较进阶的内容，这对一些比较特别的场景很有帮助。</p></div></section>
+                                                    <section class="stream-list__item stream__item"><div data-id="1190000010958674"
+         class="stream__item-zan   btn btn-default mt0 mr15"><span class="stream__item-zan-icon"></span><span class="stream__item-zan-number">2</span></div><div class="summary"><h2 class="title blog-type-common blog-type-1"><a href="/a/1190000010958674">Zsh 开发指南（第十篇 文件查找和批量处理）</a></h2><ul class="author list-inline"><li><a href="/u/goreliu"><img class="avatar-20 mr10 hidden-xs" src="https://avatar-static.segmentfault.com/136/276/1362761550-58fbf3889ae12_tiny24" alt="陌辞寒">陌辞寒
+                </a>&nbsp;&nbsp;2017年09月01日发布
+            </li><li class="" title="7 收藏"><span data-id="1190000010958674" data-type="article" class="news__bookmark-btn "><i class="fa fa-bookmark" aria-hidden="true"></i><span class="news__bookmark-text ml5">7 收藏</span></span></li></ul><p class="excerpt wordbreak hidden-xs">寻找满足特定条件的文件路径，简称文件查找，是 shell 脚本的常见任务，因为条件复杂多样，这样的任务并不轻松。很多人使用 find 命令来做，但 find 只能覆盖一部分功能，其他的要自己进一步处理，而且 find 并不...</p></div></section>
+                                                    <section class="stream-list__item stream__item"><div data-id="1190000010953376"
+         class="stream__item-zan   btn btn-default mt0 mr15"><span class="stream__item-zan-icon"></span><span class="stream__item-zan-number">1</span></div><div class="summary"><h2 class="title blog-type-common blog-type-1"><a href="/a/1190000010953376">Zsh 开发指南（第九篇 函数和脚本）</a></h2><ul class="author list-inline"><li><a href="/u/goreliu"><img class="avatar-20 mr10 hidden-xs" src="https://avatar-static.segmentfault.com/136/276/1362761550-58fbf3889ae12_tiny24" alt="陌辞寒">陌辞寒
+                </a>&nbsp;&nbsp;2017年08月31日发布
+            </li><li class="" title="3 收藏"><span data-id="1190000010953376" data-type="article" class="news__bookmark-btn "><i class="fa fa-bookmark" aria-hidden="true"></i><span class="news__bookmark-text ml5">3 收藏</span></span></li></ul><p class="excerpt wordbreak hidden-xs">很多时候，我们写的代码并不是只运行一次就不再用了，那就需要保存到文件里。我们通常称包含解释性编程语言代码的可执行文件为脚本文件，简称脚本。而在脚本内部，也会有一些可以复用的代码，我们可以把这样的代...</p></div></section>
+                                                    <section class="stream-list__item stream__item"><div data-id="1190000010937579"
+         class="stream__item-zan   btn btn-default mt0 mr15"><span class="stream__item-zan-icon"></span><span class="stream__item-zan-number">0</span></div><div class="summary"><h2 class="title blog-type-common blog-type-1"><a href="/a/1190000010937579">Zsh 开发指南（第八篇 变量修饰语）</a></h2><ul class="author list-inline"><li><a href="/u/goreliu"><img class="avatar-20 mr10 hidden-xs" src="https://avatar-static.segmentfault.com/136/276/1362761550-58fbf3889ae12_tiny24" alt="陌辞寒">陌辞寒
+                </a>&nbsp;&nbsp;2017年08月31日发布
+            </li><li class="" title="4 收藏"><span data-id="1190000010937579" data-type="article" class="news__bookmark-btn "><i class="fa fa-bookmark" aria-hidden="true"></i><span class="news__bookmark-text ml5">4 收藏</span></span></li></ul><p class="excerpt wordbreak hidden-xs">变量修饰语是 zsh 中有一个很独特的概念，对变量进行操作，功能上和函数类似，但用起来更方便，在一行代码里实现复杂功能主要靠它了。而代价是可读性更差，怎么用就要自己权衡了。它也是 zsh 最有特色的部分之一...</p></div></section>
+                                                    <section class="stream-list__item stream__item"><div data-id="1190000010924010"
+         class="stream__item-zan   btn btn-default mt0 mr15"><span class="stream__item-zan-icon"></span><span class="stream__item-zan-number">0</span></div><div class="summary"><h2 class="title blog-type-common blog-type-1"><a href="/a/1190000010924010">Zsh 开发指南（第七篇 数值计算）</a></h2><ul class="author list-inline"><li><a href="/u/goreliu"><img class="avatar-20 mr10 hidden-xs" src="https://avatar-static.segmentfault.com/136/276/1362761550-58fbf3889ae12_tiny24" alt="陌辞寒">陌辞寒
+                </a>&nbsp;&nbsp;2017年08月30日发布
+            </li><li class="" title="3 收藏"><span data-id="1190000010924010" data-type="article" class="news__bookmark-btn "><i class="fa fa-bookmark" aria-hidden="true"></i><span class="news__bookmark-text ml5">3 收藏</span></span></li></ul><p class="excerpt wordbreak hidden-xs">数值计算并非 zsh 的强项，但应付一些简单的场景还是没问题的。并且 zsh 提供一个数值计算库，里边有一些比较常用的数学函数。</p></div></section>
+                                                    <section class="stream-list__item stream__item"><div data-id="1190000010919090"
+         class="stream__item-zan   btn btn-default mt0 mr15"><span class="stream__item-zan-icon"></span><span class="stream__item-zan-number">1</span></div><div class="summary"><h2 class="title blog-type-common blog-type-1"><a href="/a/1190000010919090">Zsh 开发指南（第六篇 哈希表）</a></h2><ul class="author list-inline"><li><a href="/u/goreliu"><img class="avatar-20 mr10 hidden-xs" src="https://avatar-static.segmentfault.com/136/276/1362761550-58fbf3889ae12_tiny24" alt="陌辞寒">陌辞寒
+                </a>&nbsp;&nbsp;2017年08月30日发布
+            </li><li class="" title="3 收藏"><span data-id="1190000010919090" data-type="article" class="news__bookmark-btn "><i class="fa fa-bookmark" aria-hidden="true"></i><span class="news__bookmark-text ml5">3 收藏</span></span></li></ul><p class="excerpt wordbreak hidden-xs">哈希表是比数组更复杂的数据结构，在某些语言里被称作关联数组或者字典等等。简单说，哈希表用于存放指定键（key）对应的值（value），键和值的关系，就像字典中单词和释义的对应关系，通过单词可以快速找到释义...</p></div></section>
+                                                    <section class="stream-list__item stream__item"><div data-id="1190000010910381"
+         class="stream__item-zan   btn btn-default mt0 mr15"><span class="stream__item-zan-icon"></span><span class="stream__item-zan-number">0</span></div><div class="summary"><h2 class="title blog-type-common blog-type-1"><a href="/a/1190000010910381">Zsh 开发指南（第五篇 数组）</a></h2><ul class="author list-inline"><li><a href="/u/goreliu"><img class="avatar-20 mr10 hidden-xs" src="https://avatar-static.segmentfault.com/136/276/1362761550-58fbf3889ae12_tiny24" alt="陌辞寒">陌辞寒
+                </a>&nbsp;&nbsp;2017年08月29日发布
+            </li><li class="" title="6 收藏"><span data-id="1190000010910381" data-type="article" class="news__bookmark-btn "><i class="fa fa-bookmark" aria-hidden="true"></i><span class="news__bookmark-text ml5">6 收藏</span></span></li></ul><p class="excerpt wordbreak hidden-xs">了解完结构比较简单的字符串后，我们来看更复杂一些的数组。其实字符串在 zsh 中也可以当字符数组操作，但很少有需要把字符串当数组来处理的场景。本篇中主要讲的是字符串数组，复杂度要比单个字符串高一些。</p></div></section>
+                                                    <section class="stream-list__item stream__item"><div data-id="1190000010897015"
+         class="stream__item-zan   btn btn-default mt0 mr15"><span class="stream__item-zan-icon"></span><span class="stream__item-zan-number">1</span></div><div class="summary"><h2 class="title blog-type-common blog-type-1"><a href="/a/1190000010897015">Zsh 开发指南（第四篇 字符串处理之通配符）</a></h2><ul class="author list-inline"><li><a href="/u/goreliu"><img class="avatar-20 mr10 hidden-xs" src="https://avatar-static.segmentfault.com/136/276/1362761550-58fbf3889ae12_tiny24" alt="陌辞寒">陌辞寒
+                </a>&nbsp;&nbsp;2017年08月29日发布
+            </li><li class="" title="4 收藏"><span data-id="1190000010897015" data-type="article" class="news__bookmark-btn "><i class="fa fa-bookmark" aria-hidden="true"></i><span class="news__bookmark-text ml5">4 收藏</span></span></li></ul><p class="excerpt wordbreak hidden-xs">这是字符串处理系列的第三篇文章。前两篇基本覆盖了字符串处理中的常用操作，但在字符串匹配方面，没有详细展开。</p></div></section>
+                                            </div><!-- /.blog-list -->
+
+                    <div class="text-center">
+                        <ul class="pagination"><li class="active"><a href="javascript:void(0);">1</a></li><li><a href="/blog/goreliu?page=2">2</a></li><li><a href="/blog/goreliu?page=3">3</a></li><li class="next"><a rel="next" href="/blog/goreliu?page=2">下一页</a></li></ul>
+                    </div>
+                            </div><!-- /.main -->
+
+            <div class="col-xs-12 col-md-3 side">
+                <div class="widget-box blog-search">
+                    <h5 class="mt0 mb20" style="font-size: 16px">54 篇文章</h5>
+                    <form action="/search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="搜索该专栏的文章" name="q">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">搜索</button>
+                            </span>
+                        </div>
+                        <input type="hidden" name="type" value="article">
+                        <input type="hidden" name="relatedObjectId" value="1200000002651410">
+                    </form>
+                    <ul class="taglist--inline inline-block" style="margin-top: 15px;margin-bottom: 0;">
+                                                                                <li class="tagPopup mb5 ">
+                                <a class="tag  "
+                                   href="/blog/goreliu?tag=linux"
+                                   data-toggle="popover" data-img="" data-placement="top"
+                                   data-original-title="linux" data-id="1040000000089392">
+                                                                      linux
+                                </a></li>
+                                                                                                                                        <li class="tagPopup mb5 ">
+                                <a class="tag  "
+                                   href="/blog/goreliu?tag=shell"
+                                   data-toggle="popover" data-img="" data-placement="top"
+                                   data-original-title="shell" data-id="1040000000089669">
+                                                                      shell
+                                </a></li>
+                                                                                                                                        <li class="tagPopup mb5 ">
+                                <a class="tag  "
+                                   href="/blog/goreliu?tag=zsh"
+                                   data-toggle="popover" data-img="" data-placement="top"
+                                   data-original-title="zsh" data-id="1040000000179157">
+                                                                      zsh
+                                </a></li>
+                                                                                                                                        <li class="tagPopup mb5 ">
+                                <a class="tag  "
+                                   href="/blog/goreliu?tag=autohotkey"
+                                   data-toggle="popover" data-img="" data-placement="top"
+                                   data-original-title="autohotkey" data-id="1040000004315164">
+                                                                      autohotkey
+                                </a></li>
+                                                                                                                                        <li class="tagPopup mb5 ">
+                                <a class="tag  "
+                                   href="/blog/goreliu?tag=raspberry-pi"
+                                   data-toggle="popover" data-img="" data-placement="top"
+                                   data-original-title="raspberry-pi" data-id="1040000000160271">
+                                                                          <img src="https://avatar-static.segmentfault.com/244/960/2449600826-i-1040000000160271_small">
+                                                                      raspberry-pi
+                                </a></li>
+                                                                                                                                        <li class="tagPopup mb5 tag__more">
+                                <a class="tag  "
+                                   href="/blog/goreliu?tag=msys2"
+                                   data-toggle="popover" data-img="" data-placement="top"
+                                   data-original-title="msys2" data-id="1040000002702362">
+                                                                      msys2
+                                </a></li>
+                                                                                        <li class="tagPopup mb5"><a class="tag tag__btn--more"
+                                                            href="javascript:;">...</a></li>
+                                                                                                            <li class="tagPopup mb5 tag__more">
+                                <a class="tag  "
+                                   href="/blog/goreliu?tag=cygwin"
+                                   data-toggle="popover" data-img="" data-placement="top"
+                                   data-original-title="cygwin" data-id="1040000000090738">
+                                                                      cygwin
+                                </a></li>
+                                                                                                                                        <li class="tagPopup mb5 tag__more">
+                                <a class="tag  "
+                                   href="/blog/goreliu?tag=%E6%A0%91%E8%8E%93%E6%B4%BE3"
+                                   data-toggle="popover" data-img="" data-placement="top"
+                                   data-original-title="树莓派3" data-id="1040000005368482">
+                                                                      树莓派3
+                                </a></li>
+                                                                                                                                        <li class="tagPopup mb5 tag__more">
+                                <a class="tag  "
+                                   href="/blog/goreliu?tag=drill"
+                                   data-toggle="popover" data-img="" data-placement="top"
+                                   data-original-title="drill" data-id="1040000002652210">
+                                                                      drill
+                                </a></li>
+                                                                                                                                        <li class="tagPopup mb5 tag__more">
+                                <a class="tag  "
+                                   href="/blog/goreliu?tag=%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80"
+                                   data-toggle="popover" data-img="" data-placement="top"
+                                   data-original-title="编程语言" data-id="1040000000089701">
+                                                                      编程语言
+                                </a></li>
+                                                                                                                                        <li class="tagPopup mb5 tag__more">
+                                <a class="tag  "
+                                   href="/blog/goreliu?tag=terminal"
+                                   data-toggle="popover" data-img="" data-placement="top"
+                                   data-original-title="terminal" data-id="1040000000090493">
+                                                                      terminal
+                                </a></li>
+                                                                                                                                        <li class="tagPopup mb5 tag__more">
+                                <a class="tag  "
+                                   href="/blog/goreliu?tag=windows10"
+                                   data-toggle="popover" data-img="" data-placement="top"
+                                   data-original-title="windows10" data-id="1040000003033273">
+                                                                      windows10
+                                </a></li>
+                                                                                                                                        <li class="tagPopup mb5 tag__more">
+                                <a class="tag  "
+                                   href="/blog/goreliu?tag=docker"
+                                   data-toggle="popover" data-img="" data-placement="top"
+                                   data-original-title="docker" data-id="1040000000366352">
+                                                                      docker
+                                </a></li>
+                                                                                                                                        <li class="tagPopup mb5 tag__more">
+                                <a class="tag  "
+                                   href="/blog/goreliu?tag=windows"
+                                   data-toggle="popover" data-img="" data-placement="top"
+                                   data-original-title="windows" data-id="1040000000089709">
+                                                                      windows
+                                </a></li>
+                                                                                                                                        <li class="tagPopup mb5 tag__more">
+                                <a class="tag  "
+                                   href="/blog/goreliu?tag=linux%E8%BF%90%E7%BB%B4"
+                                   data-toggle="popover" data-img="" data-placement="top"
+                                   data-original-title="linux运维" data-id="1040000000664856">
+                                                                      linux运维
+                                </a></li>
+                                                                                                                                        <li class="tagPopup mb5 tag__more">
+                                <a class="tag  "
+                                   href="/blog/goreliu?tag=%E7%9B%91%E6%8E%A7"
+                                   data-toggle="popover" data-img="" data-placement="top"
+                                   data-original-title="监控" data-id="1040000000116156">
+                                                                      监控
+                                </a></li>
+                                                                                                                                        <li class="tagPopup mb5 tag__more">
+                                <a class="tag  "
+                                   href="/blog/goreliu?tag=%E4%B8%BB%E6%9C%BA%E7%9B%91%E6%8E%A7"
+                                   data-toggle="popover" data-img="" data-placement="top"
+                                   data-original-title="主机监控" data-id="1040000000478748">
+                                                                      主机监控
+                                </a></li>
+                                                                                                                                        <li class="tagPopup mb5 tag__more">
+                                <a class="tag  "
+                                   href="/blog/goreliu?tag=%E6%95%B0%E6%8D%AE%E5%BA%93"
+                                   data-toggle="popover" data-img="" data-placement="top"
+                                   data-original-title="数据库" data-id="1040000000089846">
+                                                                      数据库
+                                </a></li>
+                                                                                                                                        <li class="tagPopup mb5 tag__more">
+                                <a class="tag  "
+                                   href="/blog/goreliu?tag=%E7%AE%97%E6%B3%95"
+                                   data-toggle="popover" data-img="" data-placement="top"
+                                   data-original-title="算法" data-id="1040000000089524">
+                                                                      算法
+                                </a></li>
+                                                                                                    </ul>
+                </div>
+
+                <div class="widget-box article-box">
+                    <h5 class="mt0" style="font-size: 16px">1 位作者</h5>
+                    <div class="media">
+                        <a class="pull-left" href="/u/goreliu">
+                            <img class="media-object avatar-40" src="https://avatar-static.segmentfault.com/136/276/1362761550-58fbf3889ae12_huge128"
+                                 alt="陌辞寒">
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading h5"><a href="/u/goreliu"
+                                                            class="ellipsis">陌辞寒</a></h4>
+                            <p class="text-muted mb0">不再更新，个人博客：[链接]</p>
+                        </div>
+                    </div>
+                                    </div>
+                            </div><!-- /.side -->
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="container text-right mb20 hidden-xs">
+        <a href="/feeds/blog/goreliu" class="feed-link">订阅本页 RSS</a>
+    </div>
+
+<script type='text/javascript'>
+    OA_show(4);
+</script>
+
+<footer id="footer">
+    <div class="container">
+        <div class="row hidden-xs">
+            <dl class="col-sm-2 site-link">
+                <dt>产品</dt>
+                                <dd><a href="/questions/hottest?utm_source=sf-footer" target="_blank">热门问答</a></dd>
+                                <dd><a href="/blogs/hottest?utm_source=sf-footer" target="_blank">热门专栏</a></dd>
+                                <dd><a href="/lives?utm_source=sf-footer" target="_blank">热门课程</a></dd>
+                                <dd><a href="/events?utm_source=sf-footer" target="_blank">最新活动</a></dd>
+                                <dd><a href="/groups?utm_source=sf-footer" target="_blank">技术圈</a></dd>
+                                <dd><a href="/groups?tab=jobs&amp;utm_source=sf-footer" target="_blank">酷工作</a></dd>
+                                <dd><a href="/app?utm_source=sf-footer" target="_blank">移动客户端</a></dd>
+                            </dl>
+            
+            <dl class="col-sm-2 site-link">
+                <dt>课程</dt>
+                                <dd><a href="/lives/edu?tag=java&amp;sort=hottest&amp;utm_source=sf-footer" target="_blank">Java 开发课程</a></dd>
+                                <dd><a href="/lives/edu?tag=php&amp;sort=hottest&amp;utm_source=sf-footer" target="_blank">PHP 开发课程</a></dd>
+                                <dd><a href="/lives/edu?tag=python&amp;sort=hottest&amp;utm_source=sf-footer" target="_blank">Python 开发课程</a></dd>
+                                <dd><a href="/lives/edu?category=1&amp;sort=hottest&amp;utm_source=sf-footer" target="_blank">前端开发课程</a></dd>
+                                <dd><a href="/lives/study?category=3&amp;sort=hottest&amp;utm_source=sf-footer" target="_blank">移动开发课程</a></dd>
+                            </dl>
+
+            <dl class="col-sm-2 site-link">
+                <dt>资源</dt>
+                                <dd><a href="/weekly?utm_source=sf-footer" target="_blank">每周精选</a></dd>
+                                <dd><a href="/users?utm_source=sf-footer" target="_blank">用户排行榜</a></dd>
+                                <dd><a href="/badges?utm_source=sf-footer" target="_blank">徽章</a></dd>
+                                <dd><a href="/faq?utm_source=sf-footer" target="_blank">帮助中心</a></dd>
+                                <dd><a href="/repu?utm_source=sf-footer" target="_blank">声望与权限</a></dd>
+                                <dd><a href="/community?utm_source=sf-footer" target="_blank">社区服务中心</a></dd>
+                            </dl>
+            
+            <dl class="col-sm-2 site-link">
+                <dt>合作</dt>
+                                <dd><a href="https://about.segmentfault.com/?utm_source=sf-footer" target="_blank">关于我们</a></dd>
+                                <dd><a href="https://business.segmentfault.com/ads?utm_source=sf-footer" target="_blank">广告投放</a></dd>
+                                <dd><a href="/groups?tab=jobs&amp;utm_source=sf-footer" target="_blank">职位发布</a></dd>
+                                <dd><a href="/lives/apply?utm_source=sf-footer" target="_blank">讲师招募</a></dd>
+                                <dd><a href="https://about.segmentfault.com/contact.html?utm_source=sf-footer" target="_blank">联系我们</a></dd>
+                                <dd><a href="/link?utm_source=sf-footer" target="_blank">合作伙伴</a></dd>
+                            </dl>
+
+            <dl class="col-sm-2 site-link">
+                <dt>关注</dt>
+                                <dd><a href="/blog/segmentfault?utm_source=sf-footer" target="_blank">产品技术日志</a></dd>
+                                <dd><a href="/blog/community_admin?utm_source=sf-footer" target="_blank">社区运营日志</a></dd>
+                                <dd><a href="/blog/segmentfault_news?utm_source=sf-footer" target="_blank">市场运营日志</a></dd>
+                                <dd><a href="/blog/segmentfault_team?utm_source=sf-footer" target="_blank">团队日志</a></dd>
+                                <dd><a href="/blog/interview?utm_source=sf-footer" target="_blank">社区访谈</a></dd>
+                                <dd>
+                    <ul class="sn-inline">
+                        <li>
+                            <a class="entypo-wechart icon-sn-weixin weixin-popover-qrcode" data-toggle="popover" data-placement="top"  data-content="">微信</a>
+                        </li>
+                        <li>
+                            <a href="http://weibo.com/segmentfault" target="_blank" class="entypo-weibo icon-sn-weibo" >新浪微博</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/SegmentFault" target="_blank" class="entypo-facebook icon-sn-github">Github</a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/segment_fault" target="_blank" class="entypo-twitter icon-sn-twitter">Twitter</a>
+                        </li>
+                    </ul>
+                </dd>
+            </dl>
+
+            <dl class="col-sm-2 site-link" id="license">
+                <dt>条款</dt>
+                                <dd><a href="/tos?utm_source=sf-footer" target="_blank">服务条款</a></dd>
+                                <dd><a href="/privacy?utm_source=sf-footer" target="_blank">隐私政策</a></dd>
+                                <dd>
+                    <a href="/app" class="clearfix mt10 block"><img src="https://static.segmentfault.com/v-5db16590/page/img/app/appQrcode.png" class="app-qrcode"></a>
+                    <div class="app-download-desc">
+                        <p>扫一扫下载 App</p>
+                    </div>
+                    
+                </dd>
+            </dl>
+        </div>
+        <div class="copyright">
+            Copyright &copy; 2011-2019 SegmentFault. 当前呈现版本 19.02.27<br>
+            <a href="http://beian.miit.gov.cn" rel="nofollow">浙ICP备 15005796号-2</a> &nbsp;
+            <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602002000" rel="nofollow">浙公网安备 33010602002000号</a>
+            <span class="ml5">杭州堆栈科技有限公司版权所有</span>
+            <P class="mt30">CDN 存储服务由 <a target="_blank" href="https://www.upyun.com/?utm_source=segmentfault&utm_medium=link&utm_campaign=upyun&md=segmentfault">又拍云</a> 赞助提供 </p>
+        </div>
+        <p class="text-center">
+            <a class="js__view--selector hidden-sm hidden-md hidden-lg" data-action="mobile" href="javascript:;">移动版</a>
+            <a class="js__view--selector hidden-sm hidden-md hidden-lg" data-action="desktop" href="javascript:;">桌面版</a>
+        </p>
+    </div>
+</footer>
+
+<div id="fixedTools" class="hidden-xs hidden-sm">
+    <a id="backtop" class="hidden border-bottom" href="#">回顶部</a>
+</div>
+
+    <script id="loginModal" type="text/template">
+    <div class="row bg-white login-modal">
+        <div class="col-md-12 login-wrap">
+            <form action="/api/user/login" method="POST" role="form" class="mt15">
+                <div class="form-group hidden">
+                                        <input type="text" class="form-control" name="remember" value="1"
+                           autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label for="username" class="control-label">手机号 或 Email</label>
+                    <input type="text" class="form-control" name="username" tabindex="1" required placeholder="11 位手机号 或 Email"
+                           autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">密码</label><span class="pull-right"><a
+                                href="/user/forgot" tabindex="4">忘记密码</a></span>
+                    <input type="password" class="form-control" name="password" tabindex="2" required placeholder="请输入密码">
+                </div>
+                <div class="form-group">
+                    <a
+                            
+                                                    href="/user/phoneLogin"
+                            class="phoneLogin"
+                                            >手机验证码登录</a>
+                </div>
+                <div class="form-group clearfix">
+                    <button type="submit" class="btn-block btn btn-primary pull-right pl20 pr20" tabindex="3"
+                            onclick='ga("send", "event", "email login button", "clicked", "login modal");'>登录
+                    </button>
+                </div>
+            </form>
+            <div class="text-muted text-center more-login-area">
+    <span class="more-login-words">更多登录方式</span>
+</div>
+<div class="widget-login mb15 text-center">
+    <a href="/user/oauth/google" class=""
+       onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "google"});'><span
+                class="icon-sn-google"></span></a>
+    <a href="/user/oauth/github" class=""
+       onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "github"});");'><span
+                class="icon-sn-github"></span></a>
+    <a href="/user/oauth/weibo" class=""
+       onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "weibo"});'><span
+                class="icon-sn-weibo"></span></a>
+    <a href="/user/oauth/qq" class=""
+       onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "qq"});'><span
+                class="icon-sn-qq"></span></a>
+    <a href="/user/oauth/weixin" class=""
+       onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "qq"});'><span
+                class="icon-sn-weixin"></span></a>
+    <a href="/user/oauth/linkedin" class=""
+       onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "linkedin"});'><span
+                class="icon-sn-linkedin"></span></a>
+    <span id="loginShowMore" style="cursor: pointer" class="mb5"><span class="icon-sn-dotted"></span></span>
+    <a href="/user/oauth/twitter" class=" hidden"
+       onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "twitter"});'><span
+                class="icon-sn-twitter"></span></a>
+    <a href="/user/oauth/facebook" class=" hidden"
+       onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "facebook"});'><span
+                class="icon-sn-facebook"></span></a>
+    <a href="/user/oauth/douban" class=" hidden"
+       onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "douban"});'><span
+                class="icon-sn-douban"></span></a>
+</div>
+<div class="form-group clearfix">
+    <a class="btn-block btn btn-default pull-right pl20 pr20 
+                        SFLogin
+             "
+
+            
+        onclick='ga("send", "event", "email login button", "clicked", "login modal");'>
+                    注册新账号
+            </a>
+</div>
+<p class="text-muted text-center mb15">继续即表示你同意<a href="/tos" target="_blank">《服务条款》</a>和<a href="/privacy" target="_blank">《隐私政策》</a></p>        </div>
+    </div>
+</script>
+    <script id="registerModal" type="text/template">
+    <div class="row bg-white login-modal">
+        <div class="col-md-12 login-wrap">
+            
+            <form action="/api/user/register" method="POST" role="form" class="mt15">
+                <div class="form-group">
+                    <label for="name" class="control-label">你的名字</label>
+                    <input type="text" class="form-control" name="name" required placeholder="真实姓名或常用昵称">
+                </div>
+                
+                <div class="form-group">
+                    <label for="mail" class="control-label">手机号</label>
+                    <input type="text" class="form-control" id="login-name" name="mail" required placeholder="11 位手机号">
+                </div>
+                
+                <input type="text" class="hidden" name="register_type" value="mail">
+
+                <div class="form-group">
+                    <div class="captchaInput mb10">
+                        <input type="text" class="form-control" name="cap" placeholder="右侧的验证码" style="width:50%; display: inline; margin-right: 15px;">
+                        <span class="mt10">
+                                <a id="loginReloadCaptcha" href="javascript:void(0)">
+                                <img src="/user/captcha?w=135&h=34" class="cap" width="135" height="34"/></a>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="phone-register-only hidden">
+                        <div class="input-group">
+                            <input name="code" type="text" class="form-control js-user-login__phone-code-value" placeholder="短信验证码">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default js-user-login__phone-vaild-btn" style="width:96px;" type="button">
+                                获取验证码</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="control-label">密码</label>
+                    <input type="password" class="form-control" name="password" required placeholder="不少于 6 位的密码">
+                </div>
+                <div class="form-group clearfix">
+                    <button type="submit" class="btn-block btn btn-primary pl20 pr20 pull-right"
+                            onclick='ga("send", "event", "email register button", "clicked", "login modal");'>注册
+                    </button>
+                </div>
+                                <div class="text-muted text-center more-login-area">
+    <span class="more-login-words">更多登录方式</span>
+</div>
+<div class="widget-login mb15 text-center">
+    <a href="/user/oauth/google" class=""
+       onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "google"});'><span
+                class="icon-sn-google"></span></a>
+    <a href="/user/oauth/github" class=""
+       onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "github"});");'><span
+                class="icon-sn-github"></span></a>
+    <a href="/user/oauth/weibo" class=""
+       onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "weibo"});'><span
+                class="icon-sn-weibo"></span></a>
+    <a href="/user/oauth/qq" class=""
+       onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "qq"});'><span
+                class="icon-sn-qq"></span></a>
+    <a href="/user/oauth/weixin" class=""
+       onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "qq"});'><span
+                class="icon-sn-weixin"></span></a>
+    <a href="/user/oauth/linkedin" class=""
+       onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "linkedin"});'><span
+                class="icon-sn-linkedin"></span></a>
+    <span id="loginShowMore" style="cursor: pointer" class="mb5"><span class="icon-sn-dotted"></span></span>
+    <a href="/user/oauth/twitter" class=" hidden"
+       onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "twitter"});'><span
+                class="icon-sn-twitter"></span></a>
+    <a href="/user/oauth/facebook" class=" hidden"
+       onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "facebook"});'><span
+                class="icon-sn-facebook"></span></a>
+    <a href="/user/oauth/douban" class=" hidden"
+       onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "douban"});'><span
+                class="icon-sn-douban"></span></a>
+</div>
+<div class="form-group clearfix">
+    <a class="btn-block btn btn-default pull-right pl20 pr20 
+                        SFRegister
+             "
+
+            
+        onclick='ga("send", "event", "email login button", "clicked", "login modal");'>
+                    已有账号登录
+            </a>
+</div>
+<p class="text-muted text-center mb15">继续即表示你同意<a href="/tos" target="_blank">《服务条款》</a>和<a href="/privacy" target="_blank">《隐私政策》</a></p>            </form>
+        </div>
+    </div>
+</script>
+    <script id="phoneLoginModal" type="text/template">
+
+    <div class="row bg-white login-modal phonelogin-modal">
+        <div class="col-md-12 login-wrap">
+            <form action="/api/user/phonelogin" method="POST" role="form" class="mt15">
+                <div class="form-group">
+                    <label for="phone" class="control-label required">手机号</label>
+                    <input type="text" class="form-control phonelogin--phone" name="phone" tabindex="1" required placeholder="11 位手机号"
+                           autocomplete="off">
+                    <span class="help-block"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="authCode" class="control-label required">验证码</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control bindphone--code" name="authCode" placeholder="短信验证码">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default user-bind__phone-vaild-btn" type="button">获取验证码</button>
+                        </span>
+                    </div>
+                    <div class="col-sm-3"></div>
+                </div>
+
+                <div class="form-group">
+                    <a 
+                                                            href="/user/login"
+                                class="SFRegister"
+                                                >密码登录（手机号或 Email）</a>
+                </div>
+                <div class="form-group clearfix">
+                    <button type="submit" class="btn-block btn btn-primary pull-right pl20 pr20" tabindex="3"
+                            onclick='ga("send", "event", "email login button", "clicked", "login modal");'>登录
+                    </button>
+                </div>
+            </form>
+            <div class="text-muted text-center more-login-area">
+    <span class="more-login-words">更多登录方式</span>
+</div>
+<div class="widget-login mb15 text-center">
+    <a href="/user/oauth/google" class=""
+       onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "google"});'><span
+                class="icon-sn-google"></span></a>
+    <a href="/user/oauth/github" class=""
+       onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "github"});");'><span
+                class="icon-sn-github"></span></a>
+    <a href="/user/oauth/weibo" class=""
+       onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "weibo"});'><span
+                class="icon-sn-weibo"></span></a>
+    <a href="/user/oauth/qq" class=""
+       onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "qq"});'><span
+                class="icon-sn-qq"></span></a>
+    <a href="/user/oauth/weixin" class=""
+       onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "qq"});'><span
+                class="icon-sn-weixin"></span></a>
+    <a href="/user/oauth/linkedin" class=""
+       onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "linkedin"});'><span
+                class="icon-sn-linkedin"></span></a>
+    <span id="loginShowMore" style="cursor: pointer" class="mb5"><span class="icon-sn-dotted"></span></span>
+    <a href="/user/oauth/twitter" class=" hidden"
+       onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "twitter"});'><span
+                class="icon-sn-twitter"></span></a>
+    <a href="/user/oauth/facebook" class=" hidden"
+       onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "facebook"});'><span
+                class="icon-sn-facebook"></span></a>
+    <a href="/user/oauth/douban" class=" hidden"
+       onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "douban"});'><span
+                class="icon-sn-douban"></span></a>
+</div>
+<div class="form-group clearfix">
+    <a class="btn-block btn btn-default pull-right pl20 pr20 
+                        SFLogin
+             "
+
+            
+        onclick='ga("send", "event", "email login button", "clicked", "login modal");'>
+                    注册新账号
+            </a>
+</div>
+<p class="text-muted text-center mb15">继续即表示你同意<a href="/tos" target="_blank">《服务条款》</a>和<a href="/privacy" target="_blank">《隐私政策》</a></p>        </div>
+    </div>
+</script>
+
+
+<script>
+    window.serverTime = 1572364648000;
+</script>
+
+<script>
+    (function (w) {
+        w.SF = {
+            staticUrl: "https://static.segmentfault.com/v-5db16590"
+        };
+        w.SF.token = (function () {
+    var _6eEA = '71c'//'Jj6'
++'42e'//'T9p'
++//'tCz'
+'tCz'+'46d'//'1A'
++//'whR'
+'94'+'7'//'bDX'
++//'Hx'
+'1b5'+//'EH'
+'40'+'1n'//'1n'
++//'u'
+'50'+'778'//'U'
++'0e6'//'hvn'
++'c1'//'eo6'
++//'anu'
+'9'+'4'//'Ec'
++'c5'//'sKw'
++'e'//'sb'
+, _GzN = [[6,9],[17,19]];
+
+    for (var i = 0; i < _GzN.length; i ++) {
+        _6eEA = _6eEA.substring(0, _GzN[i][0]) + _6eEA.substring(_GzN[i][1]);
+    }
+
+    return _6eEA;
+})();;
+    })(window);
+
+                var lock = {
+        type: "",
+        text: '',
+        table: {"ban_post":[1,"\u4f60\u5df2\u7ecf\u88ab\u7981\u8a00, \u65e0\u6cd5\u8fdb\u884c\u6b64\u64cd\u4f5c, \u5982\u6709\u7591\u4e49\u8bf7\u63d0\u4ea4\u7533\u8bc9, \u6216\u8005\u53d1\u90ae\u4ef6\u5230pr@segmentfault.com"]}
+    };
+
+        var ddosMode = false;
+    
+        (function (currentUrl) {
+        if (typeof URL != 'undefined') {
+            var baseUrl = new URL('https://segmentfault.com');
+
+            if (baseUrl.protocol != currentUrl.protocol
+                || baseUrl.host != currentUrl.host) {
+                window.location.href = baseUrl.protocol + '//' + baseUrl.host
+                    + currentUrl.pathname + currentUrl.search + currentUrl.hash;
+            }
+        }
+    })(window.location);
+    </script>
+
+             <script crossorigin src="https://static.segmentfault.com/v-5db16590/3rd/assets.js"></script>
+                 
+        <script crossorigin src="https://static.segmentfault.com/v-5db16590/blog/script/blog.min.js"></script>
+            
+
+
+<script src="https://static.segmentfault.com/v-5db16590/global/script/ads.min.js" type="text/javascript"></script>
+
+<script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-918487-8']);
+    _gaq.push(['_trackPageview']);
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+                
+        
+
+                
+
+    ga('create', 'UA-918487-8', 'auto', {
+        'userID'
+    : 0,
+        'createdTime'
+    : 0,
+        'now'
+    : 1572364648,
+        'allowLinker'
+    : true });
+    ga('require', 'linker');
+    ga('linker:autoLink', ['docs.segmentfault.com'] );
+    ga('set', 'dimension1', 'guest');
+    ga('send', 'pageview');
+
+        if(document.getElementById('UGTKzPZbRoOS')){
+        UGTKzPZbRoOS='No';
+    } else {
+        UGTKzPZbRoOS='Yes';
+    }
+
+    if(typeof ga !=='undefined'){
+        ga('send','event','Blocking Ads',UGTKzPZbRoOS,{'nonInteraction':1});
+    } else if(typeof _gaq !=='undefined'){
+        _gaq.push(['_trackEvent','Blocking Ads',UGTKzPZbRoOS,undefined,undefined,true]);
+    }
+
+</script>
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?e23800c454aa573c0ccb16b52665ac26";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+</body>
+</html>

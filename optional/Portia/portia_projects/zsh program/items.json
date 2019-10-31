@@ -1,0 +1,21 @@
+{
+    "6310-43e1-8d24": {
+        "fields": {
+            "a449-48f2-8dd6": {
+                "id": "a449-48f2-8dd6", 
+                "name": "articl_url", 
+                "required": false, 
+                "type": "url", 
+                "vary": false
+            }, 
+            "1d06-47c3-a438": {
+                "id": "1d06-47c3-a438", 
+                "name": "title", 
+                "required": false, 
+                "type": "text", 
+                "vary": false
+            }
+        }, 
+        "name": "- SegmentFault"
+    }
+}
