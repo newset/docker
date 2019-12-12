@@ -71,3 +71,5 @@ lib
 
 packages/*/yarn.lock
 packages/*/package-lock.json
+
+mongo/data
