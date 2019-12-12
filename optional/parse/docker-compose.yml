@@ -1,4 +1,4 @@
-version: '2'
+version: "2"
 
 services:
   parse-server:
@@ -18,13 +18,13 @@ services:
       - ./cloud:/parse/cloud
       - ./certs:/certs
     command: "--appId $SERVER_APP_ID --masterKey $SERVER_MASTER_KEY --databaseURI ${DATABASE_URI}"
-  mongo:
-    container_name: parse_mongo
-    image: mongo # ref. https://github.com/ParsePlatform/parse-server/issues/1913
-    ports:
-      - "27017:27017"
-    volumes:
-      - ./data/db:/data/db
+  # mongo:
+  #   container_name: parse_mongo
+  #   image: mongo # ref. https://github.com/ParsePlatform/parse-server/issues/1913
+  #   ports:
+  #     - "27017:27017"
+  #   volumes:
+  #     - ./data/db:/data/db
 
   parse-dashboard:
     container_name: parse_dashboard
