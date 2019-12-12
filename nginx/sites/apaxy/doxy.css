@@ -1,0 +1,274 @@
+.row,
+.row .cell {
+  white-space: nowrap;
+}
+
+h1,
+h1 a {
+  color: #263238;
+}
+
+body,
+input {
+  font-family: "Roboto Mono", "Lucida Sans Typewriter", "Lucida Console", monaco,
+    "Bitstream Vera Sans Mono", monospace;
+}
+
+*,
+input {
+  outline: 0;
+}
+
+.row,
+input {
+  height: 40px;
+  line-height: 40px;
+}
+
+hr,
+input {
+  border: 0;
+}
+
+.head,
+.row,
+input {
+  line-height: 40px;
+}
+
+a,
+h1 a {
+  text-decoration: none;
+}
+
+a:hover,
+h1 a:hover {
+  text-decoration: underline;
+  color: #546e7a;
+}
+
+.head th,
+a:hover,
+h1 a:hover,
+input {
+  color: #546e7a;
+}
+
+.row i,
+body {
+  position: relative;
+}
+
+* {
+  -webkit-tap-highlight-color: rgba(201, 224, 253, 0);
+}
+
+pre {
+  display: none;
+}
+
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+  font-size: 1em;
+}
+
+table th {
+  text-align: left;
+}
+
+table th:first-child {
+  width: 60%;
+}
+
+table td.last,
+table th.last {
+  width: 10%;
+  text-align: right;
+}
+
+#contents,
+input {
+  width: 100%;
+}
+
+.row {
+  display: table-row;
+}
+
+.row i,
+a,
+h1 {
+  display: inline-block;
+}
+
+.row.active {
+  background-color: #eee;
+}
+
+.row .cell {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.row .cell:last-child:not(:first-child) {
+  text-align: right;
+}
+
+#contents,
+h1 {
+  text-align: left;
+}
+
+body {
+  margin: 0;
+  font-size: 12px;
+  color: #cdd7dd;
+  background: #fff;
+  padding: 40px;
+}
+
+h1 {
+  width: 600px;
+  margin-top: 0;
+  word-wrap: break-word;
+}
+
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: 0 0;
+  border-bottom: 1px dotted #cdd7dd;
+  font-size: 1em;
+  margin-bottom: 20px;
+  margin-left: 0;
+}
+
+hr {
+  border-bottom: 1px solid #cdd7dd;
+}
+
+#contents,
+.head th {
+  border-bottom: 2px solid #cdd7dd;
+}
+
+#contents {
+  margin-bottom: 40px;
+}
+
+a {
+  color: #263238;
+  border-radius: 2px;
+}
+
+.row.active,
+.row.active.dir a {
+  color: #546e7a !important;
+}
+
+td:first-child,
+th:first-child {
+  padding-left: 10px;
+}
+
+td.last,
+th.last {
+  padding-right: 5px;
+}
+
+.row.active,
+.row:hover {
+  background: #cdd7dd !important;
+}
+
+#credit,
+#credit a {
+  color: #cdd7dd;
+}
+
+.row.active.dir a i,
+.row.active.dir a i:after {
+  background-color: #546e7a;
+}
+
+.row.ParentDirectory {
+  background: #ebeff1;
+}
+
+.row i,
+.row i:after {
+  background-color: #cdd7dd;
+}
+
+.row.ParentDirectory a:first-child:before {
+  content: "\21E0";
+  display: inline-block;
+  vertical-align: top;
+  font-size: 1.5em;
+  padding-left: 5px;
+  width: 25px;
+  height: 16px;
+}
+
+.row i {
+  width: 15px;
+  height: 10px;
+  margin: 0 10px 0 0;
+  left: 0;
+  border-radius: 0 2px 2px;
+}
+
+.row i:after {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 2px;
+  border-radius: 2px 2px 0 0;
+  position: absolute;
+  top: -2px;
+}
+
+.row a:hover i,
+.row a:hover i:after {
+  background-color: #546e7a;
+}
+
+#credit {
+  text-align: center;
+  width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  #contents,
+  h1,
+  input {
+    width: 100%;
+  }
+
+  body {
+    padding: 20px;
+    font-size: 14px;
+  }
+
+  h1 {
+    word-wrap: break-word;
+  }
+
+  table tr td:nth-child(n + 2),
+  table tr th:nth-child(n + 2) {
+    display: none;
+  }
+
+  #contents {
+    display: table;
+  }
+
+  #contents .row {
+    border-bottom: 1px solid #cdd7dd;
+    height: 50px;
+    line-height: 50px;
+  }
+}
