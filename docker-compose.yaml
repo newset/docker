@@ -1,0 +1,45 @@
+version: "3"
+services:
+  traefik:
+    container_name: traefik
+    image: traefik:v2.3.6
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./certs:/certs
+      - ${PWD}/traefik:/etc/traefik # Traefik static config
+    labels:
+      - "traefik.http.routers.traefik.rule=Host(`traefik.miaotai.com`)"
+      - "traefik.http.routers.traefik.service=api@internal"
+      - "traefik.http.routers.traefik.tls=true"
+  whoami:
+    container_name: whoami
+    image: traefik/whoami
+    labels:
+      - "traefik.http.routers.whoami.rule=Host(`whoami.miaotai.com`)"
+  nginx:
+    container_name: global-nginx
+    restart: always
+    image: openresty/openresty:alpine
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/logs:/var/log/nginx
+      - ./nginx/sites:/var/www/html
+  adblock:
+    container_name: adblock
+    image: adguard/adguardhome
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+    volumes:
+      - ./dns/conf:/opt/adguardhome/conf
+  flow:
+    container_name: flow
+    image: nodered/node-red
+    volumes:
+      - ./flow:/data
+    labels:
+      # 设置Host 为 flow.miaotai.com 进行域名访问
+      - "traefik.http.routers.flow.rule=Host(`flow.miaotai.com`)"
