@@ -7,8 +7,8 @@
 
 设置DNS
 ```
-networksetup -setdnsservers Wi-Fi 114.114.114.114 127.0.0.1
-networksetup -setdnsservers 'USB 10/100/1000 LAN' 114.114.114.114 127.0.0.1
+networksetup -setdnsservers Wi-Fi 127.0.0.1
+networksetup -setdnsservers 'USB 10/100/1000 LAN' 127.0.0.1
 ```
 
 ## 证书
