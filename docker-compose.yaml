@@ -35,3 +35,11 @@ services:
     labels:
       # 设置Host 为 flow.miaotai.com 进行域名访问
       - "traefik.http.routers.flow.rule=Host(`flow.miaotai.com`)"
+  # nginx:
+  #   container_name: global-nginx
+  #   restart: always
+  #   image: openresty/openresty:alpine
+  #   volumes:
+  #     - ./nginx/conf.d:/etc/nginx/conf.d
+  #     - ./nginx/logs:/var/log/nginx
+  #     - ./nginx/sites:/var/www/html
