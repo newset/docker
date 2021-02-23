@@ -17,10 +17,6 @@ http:
       rule: "Host(`hasura.miaotai.com`)"
       service: hasura
       tls: true
-    dns:
-      rule: "Host(`dns.miaotai.com`)"
-      service: dns
-      tls: true
     tracing:
       rule: "Host(`tracing.miaotai.com`) && PathPrefix(`/auth/`, `/api/`, `/_static/`)"
       middlewares:
@@ -83,10 +79,6 @@ http:
         servers:
           # - url: http://host.docker.internal:8080 #dev
           - url: http://172.28.19.61
-    dns:
-      loadBalancer:
-        servers:
-          - url: http://adblock:3000
     hw-router:
       loadBalancer:
         servers:

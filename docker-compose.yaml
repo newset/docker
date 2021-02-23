@@ -11,35 +11,39 @@ services:
       - ./certs:/certs
       - ${PWD}/traefik:/etc/traefik # Traefik static config
     labels:
-      - "traefik.http.routers.traefik.rule=Host(`traefik.miaotai.com`)"
+      - "traefik.http.routers.traefik.rule=Host(`traefik.${MAIN_DOMAIN}`)"
       - "traefik.http.routers.traefik.service=api@internal"
       - "traefik.http.routers.traefik.tls=true"
   whoami:
     container_name: whoami
     image: traefik/whoami
     labels:
-      - "traefik.http.routers.whoami.rule=Host(`whoami.miaotai.com`)"
+      - "traefik.http.routers.whoami.rule=Host(`whoami.${MAIN_DOMAIN}`)"
   adblock:
-    container_name: adblock
+    container_name: dns
     image: adguard/adguardhome
     ports:
       - "53:53/tcp"
       - "53:53/udp"
     volumes:
       - ./dns/conf:/opt/adguardhome/conf
+    labels:
+      - "traefik.http.routers.dns.rule=Host(`dns.${MAIN_DOMAIN}`)"
+      - "traefik.http.services.dns.loadbalancer.server.port=3000"
+      - "traefik.http.routers.dns.tls=true"
   flow:
     container_name: flow
     image: nodered/node-red
     volumes:
       - ./flow:/data
     labels:
-      # 设置Host 为 flow.miaotai.com 进行域名访问
-      - "traefik.http.routers.flow.rule=Host(`flow.miaotai.com`)"
-  # nginx:
-  #   container_name: global-nginx
-  #   restart: always
-  #   image: openresty/openresty:alpine
-  #   volumes:
-  #     - ./nginx/conf.d:/etc/nginx/conf.d
-  #     - ./nginx/logs:/var/log/nginx
-  #     - ./nginx/sites:/var/www/html
+      # 设置Host 为 flow.${MAIN_DOMAIN} 进行域名访问
+      - "traefik.http.routers.flow.rule=Host(`flow.${MAIN_DOMAIN}`)"
+  nginx:
+    container_name: global-nginx
+    restart: always
+    image: openresty/openresty:alpine
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/logs:/var/log/nginx
+      - ./nginx/sites:/var/www/html
