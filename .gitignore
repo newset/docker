@@ -77,3 +77,6 @@ mariadb/
 certs/
 
 nginx
+flow
+go
+dns
