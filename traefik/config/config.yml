@@ -17,14 +17,19 @@ http:
       rule: "Host(`hasura.miaotai.com`)"
       service: hasura
       tls: true
+    api:
+      rule: "Host(`api.miaotai.com`)"
+      service: api
+      tls: true
+      middlewares:
+        - cors
     tracing:
       rule: "Host(`tracing.miaotai.com`) && PathPrefix(`/auth/`, `/api/`, `/_static/`)"
       middlewares:
         - sentry
-        - cors
       service: sentry
     tracing-ui:
-      rule: "Host(`tracing.miaotai.com`)"
+      rule: "Host(`tracing.miaotai.com`) "
       middlewares:
         - sentry
       service: tracing
@@ -53,6 +58,10 @@ http:
       rule: "Host(`sso.miaotai.com`) || Host(`a.miaotai.com`) || Host(`b.miaotai.org`)"
       service: preview-server
   services:
+    api:
+      loadBalancer:
+        servers:
+          - url: https://api.doctorwork.com
     preview-server:
       loadBalancer:
         servers:
@@ -113,9 +122,13 @@ http:
           host: sentry.xrxr.xyz
     cors:
       headers:
+        customRequestHeaders:
+          Host: "api.doctorwork.com"
         customResponseHeaders:
-          accessControlAllowOriginList:
-            - http://tracing.miaotai.com
+          "Access-Control-Allow-Headers": "sentry-trace"
+          "Access-Control-Allow-Origin": "http://tracing.miaotai.com"
+          "Access-Control-Allow-Credentials": "true"
+
 tls:
   certificates:
     - certFile: /certs/cert.pem

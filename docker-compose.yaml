@@ -19,18 +19,6 @@ services:
     image: traefik/whoami
     labels:
       - "traefik.http.routers.whoami.rule=Host(`whoami.${MAIN_DOMAIN}`)"
-  adblock:
-    container_name: dns
-    image: adguard/adguardhome
-    ports:
-      - "53:53/tcp"
-      - "53:53/udp"
-    volumes:
-      - ./dns/conf:/opt/adguardhome/conf
-    labels:
-      - "traefik.http.routers.dns.rule=Host(`dns.${MAIN_DOMAIN}`)"
-      - "traefik.http.services.dns.loadbalancer.server.port=3000"
-      - "traefik.http.routers.dns.tls=true"
   flow:
     container_name: flow
     image: nodered/node-red
@@ -47,3 +35,32 @@ services:
       - ./nginx/conf.d:/etc/nginx/conf.d
       - ./nginx/logs:/var/log/nginx
       - ./nginx/sites:/var/www/html
+  pdns-admin:
+    container_name: pdns-admin
+    image: ngoduykhanh/powerdns-admin
+  #   labels:
+  #     # 设置Host 为 flow.${MAIN_DOMAIN} 进行域名访问
+  #     - "traefik.http.routers.flow.rule=Host(`pdns.${MAIN_DOMAIN}`)"
+  #   volumes: 
+  #     - ./dns/:/pdns/
+    depends_on:
+      - pdns
+    ports:
+      - 9191:80
+    environment: 
+      - SECRET_KEY='a-very-secret-key'
+  #     - SQLALCHEMY_DATABASE_URI=sqlite:////pdns/pdns.sqlite
+  pdns: 
+    container_name: pdns
+    build: ./dns
+    ports:
+      - 53:53/udp
+      - 53:53/tcp
+      - 8081:8081
+    environment:
+      - PDNS_LOG_LEVEL=0
+      - PDNS_API_KEY=34H5G34J5H43H34
+      - PDNS_WEBSERVER_PASSWORD=123456
+      - PDNS_WEBSERVER_ALLOWED_FROM=127.0.0.1,::1,172.0.0.0/8
+    volumes: 
+      - ./dns/:/pdns/
