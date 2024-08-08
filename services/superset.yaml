@@ -1,0 +1,12 @@
+services:
+  superset:
+    image: apache/superset:4.0.2
+    container_name: superset
+    volumes:
+      - "./superset/startup.sh:/opt/startup.sh"
+      - "./superset/superset_config.py:/app/superset_config.py"
+    ports:
+      - "8088:8088"
+    networks:
+      - shiwu
+# https://geroldbusch.de/blog/superset-custom-image/
