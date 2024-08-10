@@ -1,0 +1,51 @@
+name: mac
+include:
+#  - ./modules/kafka.yml
+  - './services/superset.yaml'
+  - './services/prometheus.yaml'
+
+services:
+  memos:
+    image: neosmemo/memos:stable
+    container_name: memos
+    volumes:
+      - ./data/emos/:/var/opt/memos
+    ports:
+      - 5230:5230
+  spug:
+    image: openspug/spug-service
+    container_name: spug
+    privileged: true
+    restart: always
+    # volumes:
+    #   - /data/spug/service:/data/spug
+    #   - /data/spug/repos:/data/repos
+    ports:
+      # 如果80端口被占用可替换为其他端口，例如: - "8000:80"
+      - "80:80"
+    environment:
+      - MYSQL_DATABASE=spug
+      - MYSQL_USER=uadme
+      - MYSQL_PASSWORD=abc123
+      - MYSQL_HOST=mysql
+      - MYSQL_PORT=3306
+    networks:
+      - shiwu
+  # traefik:
+  #   container_name: traefik
+  #   image: traefik:v2.3.6
+  #   ports:
+  #     - 80:80
+  #     - 443:443
+  #   networks:
+  #     - shiwu
+  #   volumes:
+  #     - ./traefik/certs:/certs
+  #     - ${PWD}/services/traefik:/etc/traefik # Traefik static config
+  #   labels:
+  #     - "traefik.http.routers.traefik.rule=Host(`traefik.${MAIN_DOMAIN}`)"
+  #     - "traefik.http.routers.traefik.service=api@internal"
+  #     - "traefik.http.routers.traefik.tls=true"
+networks:
+  shiwu:
+    external: true

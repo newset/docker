@@ -1,0 +1,17 @@
+# master
+CREATE USER 'replicator'@'%' IDENTIFIED BY 'rotacilper';
+GRANT REPLICATION SLAVE ON *.* TO 'replicator'@'%';
+FLUSH PRIVILEGES;
+
+SHOW MASTER STATUS;
+
+# slave
+CHANGE MASTER TO
+  MASTER_HOST='mysql',
+  MASTER_PORT=3306,
+  MASTER_USER='replicator',
+  MASTER_PASSWORD='rotacilper',
+  MASTER_LOG_FILE='mysql-bin.000002',
+  MASTER_LOG_POS=1557;
+
+START SLAVE;

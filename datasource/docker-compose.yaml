@@ -1,0 +1,33 @@
+name: datasource
+include:
+  # - ./clickhouse.yaml
+  - ./mysql.yaml
+  # - ./elasticsearch.yaml
+
+services:
+  mysql-exporter:
+    container_name: mysql-exporter
+    image: prom/mysqld-exporter
+    networks:
+      - shiwu
+    restart: on-failure
+    command:
+      - "--mysqld.username=root:abc123"
+      - "--mysqld.address=mysql:3306"
+    environment:
+      # 这里指定的是要监控的 MySQL 数据库，这里我们以启动的 test-mysql 容器为示范。
+      # 实际应用当中，应该配置为具体的数据库实例。
+      - DATA_SOURCE_NAME=root:abc123@(mysql:3306)/
+  # postgres:
+  #   container_name: postgres
+  #   image: postgres:15-alpine
+  #   restart: always
+  #   environment:
+  #     POSTGRES_USER: aptabase
+  #     POSTGRES_PASSWORD: sTr0NGp4ssw0rd
+  #   networks:
+  #     - shiwu
+
+networks:
+  shiwu:
+    external: true

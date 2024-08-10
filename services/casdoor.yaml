@@ -1,0 +1,9 @@
+services:
+  casdoor:
+    image: casbin/casdoor:latest
+    container_name: casdoor
+    volumes:
+      - ./casdoor/app.conf:/conf/app.conf
+    networks:
+      - shiwu
+    restart: always

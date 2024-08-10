@@ -1,0 +1,71 @@
+services:
+  mysql:
+    image: mariadb
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-replica-main:/tmp
+      - /db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment: &mysql-default-environment
+      MYSQL_ROOT_PASSWORD: abc123
+      MYSQL_DATABASE: uadme
+      MYSQL_USER: uadme
+      MYSQL_PASSWORD: abc123
+    # https://gist.github.com/Linuxpizi/745b1acd427f72ebe1d6406f6cc98a0c
+    command: --server-id=1 --log-bin=mysql-bin --binlog-format=row --binlog-ignore-db=mysql --binlog-ignore-db=performance_schema --binlog-ignore-db=information_schema --binlog-ignore-db=sys
+    restart: always
+    networks:
+      - shiwu
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 10s
+      retries: 10
+  mysql-slave1:
+    image: mariadb
+    container_name: mysql-slave1
+    command: --server-id=2 --log-bin=mysql-bin --binlog-format=row
+    depends_on:
+      - mysql
+    volumes:
+      - mysql-replica-read:/tmp
+    environment: *mysql-default-environment
+    networks:
+      - shiwu
+    ports:
+      - "3307:3306"
+  mysql-slave2:
+    image: mariadb
+    container_name: mysql-slave2
+    command: --server-id=3 --log-bin=mysql-bin --binlog-format=row
+    depends_on:
+      - mysql
+    environment: *mysql-default-environment
+    networks:
+      - shiwu
+    ports:
+      - "3308:3306"
+  redis:
+    image: redis
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - shiwu
+  # shardingsphere-proxy:
+  #   image: apache/shardingsphere-proxy
+  #   container_name: shardingsphere-proxy
+  #   networks:
+  #     - shiwu
+  #   restart: always
+  #   command: server /data
+  #   volumes:
+  #     - ./shardingsphere/conf:/opt/shardingsphere-proxy/conf
+  #     - ./shardingsphere/ext-lib:/opt/shardingsphere-proxy/ext-lib
+  #   environment:
+  #     - JVM_OPTS="-Djava.awt.headless=true"
+
+volumes:
+  mysql-replica-main:
+  mysql-replica-read:
